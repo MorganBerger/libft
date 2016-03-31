@@ -3,29 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberger <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mberger <mberger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 15:36:58 by mberger           #+#    #+#             */
-/*   Updated: 2014/12/12 15:37:05 by mberger          ###   ########.fr       */
+/*   Created: 2014/11/04 15:33:30 by mberger           #+#    #+#             */
+/*   Updated: 2014/12/23 21:17:17 by mberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void				*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned int	counter;
-	char			*found;
-	char			*driver;
+	unsigned int		i;
+	unsigned char		*p;
 
-	counter = 0;
-	driver = (char *)s;
-	found = NULL;
-	while (found == NULL && counter < n)
+	i = 0;
+	p = (unsigned char*)s;
+	if (s && n > 0)
 	{
-		if (driver[counter] == c)
-			found = &(driver[counter]);
-		counter++;
+		while (i < n)
+		{
+			if (p[i] == (unsigned char)c)
+				return ((void*)(p + i));
+			i++;
+		}
 	}
-	return (found);
+	return (NULL);
 }

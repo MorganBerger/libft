@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_isnbr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 15:38:22 by mberger           #+#    #+#             */
-/*   Updated: 2014/12/12 15:38:25 by mberger          ###   ########.fr       */
+/*   Created: 2015/02/13 15:17:56 by mberger           #+#    #+#             */
+/*   Updated: 2015/02/15 02:56:58 by mberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_pow(int base, int exp)
+int		ft_isnbr(char *nb)
 {
-	int	result;
+	int i;
 
-	result = 1;
-	while (exp)
+	i = 0;
+	if (nb[0] == '-' || nb[0] == '+')
+		i++;
+	while (nb[i])
 	{
-		result *= base;
-		exp--;
+		if (!ft_isdigit(nb[i]))
+			return (0);
+		i++;
 	}
-	return (result);
+	return (1);
 }

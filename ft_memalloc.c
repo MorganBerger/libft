@@ -3,28 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberger <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mberger <mberger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 15:36:38 by mberger           #+#    #+#             */
-/*   Updated: 2014/12/12 15:36:40 by mberger          ###   ########.fr       */
+/*   Created: 2014/11/08 16:21:21 by mberger           #+#    #+#             */
+/*   Updated: 2014/11/11 17:21:04 by mberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void					*ft_memalloc(size_t size)
+void	*ft_memalloc(size_t size)
 {
-	void				*memory;
-	unsigned int		counter;
-	char				*explorer;
+	size_t	i;
+	void	*tab;
+	char	*init;
 
-	counter = 0;
-	memory = (void *)malloc(size);
-	explorer = (char *)memory;
-	if (memory != NULL)
+	i = 0;
+	tab = (void*)malloc(sizeof(char) * size);
+	init = (char*)tab;
+	if (tab == NULL)
+		return (NULL);
+	while (i < size)
 	{
-		while (counter++ < size)
-			*explorer++ = 0;
+		init[i] = 0;
+		i++;
 	}
-	return (memory);
+	return (tab);
 }

@@ -6,7 +6,7 @@
 /*   By: mberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 15:38:13 by mberger           #+#    #+#             */
-/*   Updated: 2014/12/12 15:48:35 by mberger          ###   ########.fr       */
+/*   Updated: 2015/03/21 23:40:40 by mberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int				*ft_nbsplit(char const *s, char c, int *y)
 			if (s[*i] != c && s[*i])
 				tab[j++] = add_w(i, s, c);
 		}
-		*y = j - 1;
+		*y = j;
 		return (tab);
 	}
 	return (0);

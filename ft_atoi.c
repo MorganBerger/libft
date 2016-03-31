@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberger <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mberger <mberger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 15:32:08 by mberger           #+#    #+#             */
-/*   Updated: 2014/12/12 15:32:18 by mberger          ###   ########.fr       */
+/*   Created: 2014/12/23 19:37:49 by mberger           #+#    #+#             */
+/*   Updated: 2016/03/09 14:17:54 by mberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 int					ft_atoi(const char *str)
 {
 	unsigned int	digit;
-	int				positive;
-	int				value;
+	int				i;
+	int				y;
 
-	value = 0;
+	y = 0;
 	digit = 0;
 	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v'
 			|| *str == '\r' || *str == '\f')
 		str++;
-	positive = (*str == '-' ? -1 : 1);
+	i = (*str == '-' ? -1 : 1);
 	if (*str == '-' || *str == '+')
 		str++;
 	while (*str == '0')
 		str++;
 	if (ft_strlen(str) > 19)
-		return (positive == 1 ? -1 : 0);
-	while (ft_isdigit (*str) && *str != '\0')
+		return (i == 1 ? -1 : 0);
+	while (ft_isdigit(*str) && *str != '\0')
 	{
 		digit = (int)(*str - '0');
-		value = (value * 10) + digit;
+		y = (y * 10) + digit;
 		str++;
 	}
-	return (value * positive);
+	return (y * i);
 }

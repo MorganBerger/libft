@@ -3,37 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberger <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mberger <mberger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 15:45:02 by mberger           #+#    #+#             */
-/*   Updated: 2014/12/12 15:45:03 by mberger          ###   ########.fr       */
+/*   Created: 2014/11/12 15:28:05 by mberger           #+#    #+#             */
+/*   Updated: 2014/12/23 21:19:06 by mberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char					*ft_strtrim(char const *s)
+static size_t	ft_isspace(size_t c)
 {
-	int					d;
-	int					trim_start;
-	unsigned int		c;
-	char				*new_str;
+	if (c == '\t')
+		return (1);
+	else if (c == '\n')
+		return (1);
+	else if (c == ' ')
+		return (1);
+	else
+		return (0);
+}
 
-	d = 0;
-	c = 0;
-	trim_start = 0;
-	new_str = ft_strnew (ft_strlen (s));
-	while (c < ft_strlen (s))
+static size_t	count_spaces(char const *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (ft_isspace(s[i]))
+		i++;
+	return (i);
+}
+
+static size_t	count_spaces_rev(char const *s, size_t len)
+{
+	if (len)
 	{
-		if (!trim_start && ft_isblank (s[c]))
-			c++;
-		else
-		{
-			trim_start = 1;
-			new_str[d++] = s[c++];
-		}
+		len--;
+		while (ft_isspace(s[len]) && len > 0)
+			len--;
 	}
-	while (ft_isblank (new_str[--d]))
-		new_str[d] = '\0';
-	return (new_str);
+	return (len);
+}
+
+char			*ft_strtrim(char const *s)
+{
+	size_t	len;
+	size_t	start;
+
+	if (s)
+	{
+		len = count_spaces_rev(s, ft_strlen(s));
+		start = count_spaces(s);
+		if (!len && !start)
+			return (ft_strdup(s));
+		else if (start == ft_strlen(s))
+			return (ft_strsub(s, 0, 0));
+		else
+			return (ft_strsub(s, start, len - start + 1));
+	}
+	return (NULL);
 }

@@ -3,19 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberger <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mberger <mberger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 15:39:13 by mberger           #+#    #+#             */
-/*   Updated: 2014/12/12 15:39:14 by mberger          ###   ########.fr       */
+/*   Created: 2014/11/07 14:38:54 by mberger           #+#    #+#             */
+/*   Updated: 2014/12/30 12:32:44 by mberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_putnbr(int n)
+void	ft_putnbr(int n)
 {
-	char		*value;
-
-	value = ft_itoa(n);
-	ft_putstr(value);
+	if (n == -2147483648)
+		ft_putstr("-2147483648");
+	else
+	{
+		if (n < 0)
+		{
+			ft_putchar('-');
+			n = -n;
+		}
+		if (n > 9)
+			ft_putnbr(n / 10);
+		ft_putchar('0' + (n % 10));
+	}
 }

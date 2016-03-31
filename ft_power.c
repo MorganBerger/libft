@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberger <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mberger <mberger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 15:37:59 by mberger           #+#    #+#             */
-/*   Updated: 2014/12/12 15:38:02 by mberger          ###   ########.fr       */
+/*   Created: 2014/08/04 22:22:48 by mberger           #+#    #+#             */
+/*   Updated: 2014/08/06 11:59:47 by mberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_nbrlen(int nombre)
+int		ft_power(int nb, int power)
 {
-	int	counter;
+	int result;
+	int i;
 
-	counter = 0;
-	if (nombre == 0)
-		return (1);
-	while (nombre > 0)
+	i = 0;
+	result = 1;
+	if (nb > 0)
 	{
-		nombre = nombre / 10;
-		counter++;
+		while (i < power)
+		{
+			result *= nb;
+			i++;
+		}
 	}
-	return (counter);
+	else
+	{
+		result = 0;
+	}
+	return (result);
 }

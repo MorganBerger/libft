@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberger <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mberger <mberger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 15:42:36 by mberger           #+#    #+#             */
-/*   Updated: 2014/12/12 15:42:37 by mberger          ###   ########.fr       */
+/*   Created: 2014/11/11 17:21:11 by mberger           #+#    #+#             */
+/*   Updated: 2014/11/11 17:21:27 by mberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		ft_inc_counters(char **dest_copy, size_t *counter)
+static void	ft_inc_counters(char **dest_copy, size_t *counter)
 {
 	while (**dest_copy != '\0' && *counter != 0)
 	{
@@ -21,7 +21,7 @@ static void		ft_inc_counters(char **dest_copy, size_t *counter)
 	}
 }
 
-size_t			ft_strlcat(char *dst, const char *src, size_t size)
+size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
 	char		*dest_copy;
 	const char	*src_copy;

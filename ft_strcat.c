@@ -3,31 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberger <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mberger <mberger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 15:40:12 by mberger           #+#    #+#             */
-/*   Updated: 2014/12/12 15:40:15 by mberger          ###   ########.fr       */
+/*   Created: 2014/11/05 10:07:35 by mberger           #+#    #+#             */
+/*   Updated: 2016/03/09 14:18:29 by mberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char					*ft_strcat(char *s1, const char *s2)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	size_t				len;
-	unsigned int		offset;
-	unsigned int		cmpt;
-	char				*fill;
+	int		i;
+	int		l;
+	char	*s2b;
 
-	offset = ft_strlen(s1);
-	fill = s1;
-	len = ft_strlen(s2);
-	cmpt = 0;
-	while (cmpt + offset <= len + offset)
+	i = 0;
+	l = 0;
+	s2b = (char *)s2;
+	while (s1[i])
+		i++;
+	while (s2[l])
 	{
-		fill[cmpt + offset] = s2[cmpt];
-		cmpt++;
+		s1[i] = s2b[l];
+		l++;
+		i++;
 	}
-	fill[cmpt + offset] = '\0';
+	s1[i] = '\0';
 	return (s1);
 }
