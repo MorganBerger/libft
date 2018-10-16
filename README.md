@@ -3,7 +3,7 @@
 The Libft is a reproduction of some of the main functions of the C Standard Library.
 First project in the cursus of the 42 School of Paris.
 
-All of the function with a **"ft_"** prefix where coded in accordance to their manual in the Standard Library.<br/>
+All of the function with a **"ft_"** prefix were coded in accordance to their manual in the Standard Library.<br/>
 To see their spec, invoke the _"man"_ command from a shell.<br/>
 
 Example: 
